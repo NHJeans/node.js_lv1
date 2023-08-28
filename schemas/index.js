@@ -1,9 +1,9 @@
 // /schemas/index.js
-import mongoose from 'mongoose';
 import dotenv from "dotenv";
-
-// 환경 변수 설정
 dotenv.config();
+
+import mongoose from 'mongoose';
+
 
 // 몽고디비 연결 
 const connect = () => {
