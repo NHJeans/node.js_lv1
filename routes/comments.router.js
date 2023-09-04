@@ -52,6 +52,7 @@ router.put("/:_postId/comments/:_commentId", async (req, res) => {
     const { _postId, _commentId } = req.params;
     const post = await Posts.findOne({ _id: _postId });
     const comments = await Comments.find({ _id: _commentId });
+    console.log(comments);
     const comment = comments[0];
     const { password, content } = req.body;
     if (!post) {
@@ -101,3 +102,5 @@ router.delete("/:_postId/comments/:_commentId", async (req, res) => {
 });
 
 export default router;
+
+

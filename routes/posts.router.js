@@ -20,6 +20,7 @@ router.post("/", async (req, res) => {
 // 게시글 조회
 router.get("/", async (req, res) => {
   try {
+    // Posts 컬렉션에서 password와 content 필드를 제외하고 모든 문서를 조회
     const post = await Posts.find({}, { password: 0, content: 0 });
     const postPrint = post.map((value) => {
       return {
@@ -71,7 +72,7 @@ router.put("/:_postId", async (req, res) => {
       );
       return res.status(200).json({ message: "게시글을 수정하였습니다." });
     } else {
-      console.error("비밀번호가 다릅니다.")
+      console.error("비밀번호가 다릅니다.");
       return res.status(405).json({ message: "비밀번호가 다릅니다." });
     }
   } catch (err) {
